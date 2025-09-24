@@ -57,7 +57,7 @@ namespace atendimento
                         Console.WriteLine("\nLista de Pacientes\n");
                         for (int i = 0; i < aux; i++)
                         {
-                            Console.Write(+i + 1 + " - " );
+                            Console.Write(i + 1 + " - " );
                             Paciente[i].ListarDados();
                         }
 
@@ -79,7 +79,7 @@ namespace atendimento
                     case "q":
                         if (escolha == "q" || escolha == "Q")
                         {
-                            Console.WriteLine("Programa encerrado");
+                            Console.WriteLine("\nPrograma encerrado");
                         }
                         return;
                         
