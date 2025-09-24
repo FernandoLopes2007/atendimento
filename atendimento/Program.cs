@@ -74,18 +74,17 @@ namespace atendimento
 
                     case "4":
                         Console.WriteLine("\nAlterar Dados\n");
+
                         break;
-                    case "Q":
+                    case "q":
                         if (escolha == "q" || escolha == "Q")
                         {
                             Console.WriteLine("Programa encerrado");
                         }
-                        break;
+                        return;
+                        
                     default:
-                        do
-                        {
-                            Console.WriteLine("Opção Incorreta");
-                        } while (escolha == "1" || escolha == "2" || escolha == "3" || escolha == "4" || escolha == "q" || escolha == "Q");
+                            Console.WriteLine("\nOpção Incorreta"); 
                         break;
                 }
             }
