@@ -10,6 +10,7 @@ namespace atendimento
     {
         public string Nome;
         public int Prioridade; //0 - Baixo, 1 - Médio 2 - Alto
+        public int CdPaciente;
 
         public void CadastrarPaciente()
         {
@@ -25,6 +26,10 @@ namespace atendimento
                     Console.WriteLine("\nDigite um valor valido\n");
                 }
             } while (Prioridade > 3);
+        }
+        public void ListarDados()
+        {
+            Console.WriteLine("Nível de Prioridade: {0}, {1} ",Prioridade, Nome);
         }
     }
 }

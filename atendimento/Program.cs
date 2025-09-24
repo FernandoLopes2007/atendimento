@@ -10,60 +10,85 @@ namespace atendimento
     {
         static void Main(string[] args)
         {
-            int tamanho = 15;
-            paciente[] paciente = new paciente[tamanho];
+            paciente[] Paciente = new paciente[15];
             string escolha;
+            int aux = 0;
 
-            Console.Clear();
-            Console.WriteLine("Bem-vindo ao cadastro de paciente\n");
-            Console.WriteLine("1 - Cadastro\n2 - Lista\n3 - Atender\n4 - Alterar\nQ - Sair\n");
-            escolha = Console.ReadLine();
 
-            switch (escolha)
+            while (true)
             {
-                case "1":
-                    TelaCadastro();
-                    break;
+                Console.WriteLine("\nBem-vindo ao cadastro de paciente\n");
+                Console.WriteLine("1 - Cadastro\n2 - Lista\n3 - Atender\n4 - Alterar\nQ - Sair\n");
+                escolha = Console.ReadLine();
 
-                case "2":
-                    TelaLista();
-                    break;
+                switch (escolha)
+                {
 
-                case "3":
-                    TelaAtender();
-                    break;
+                    case "1":
+                        if (aux < 15)
+                        {
+                            Console.WriteLine("\nÁrea de Cadastro\n");
+                            {
+                                paciente novoPaciente = new paciente();
+                                novoPaciente.CadastrarPaciente();
+                                novoPaciente.CdPaciente = aux + 1;
+                                if (novoPaciente.Prioridade == 2)
+                                {
+                                    for (int i = aux; i > 0; i--)
+                                    {
+                                        Paciente[i] = Paciente[i - 1];
+                                    }
+                                    Paciente[0] = novoPaciente;
+                                }
+                                else
+                                {
+                                    Paciente[aux] = novoPaciente;
+                                }
+                                aux++;
+                                Console.WriteLine("\nPaciente Cadastrado\n");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nFila cheia.\n");
+                        }
+                        break;
+                    case "2":
+                        Console.WriteLine("\nLista de Pacientes\n");
+                        for (int i = 0; i < aux; i++)
+                        {
+                            Console.Write(+i + 1 + " - " );
+                            Paciente[i].ListarDados();
+                        }
 
-                case "4":
-                    TelaAlterar();
-                    break;
-                case "Q":
-                    Sair();
-                    break;
-                default:
-                    
-                    break;
+                        break;
 
+                    case "3":
+                        Console.WriteLine("\nAtender Pacientes\n");
+                        for(int i = 0; i < aux - 1; i++)
+                        {
+                            Paciente[i] = Paciente[i + 1];
+                            Paciente[aux - 1] = null; aux--;
+                        }
+                        break;
+
+                    case "4":
+                        Console.WriteLine("\nAlterar Dados\n");
+                        break;
+                    case "Q":
+                        if (escolha == "q" || escolha == "Q")
+                        {
+                            Console.WriteLine("Programa encerrado");
+                        }
+                        break;
+                    default:
+                        do
+                        {
+                            Console.WriteLine("Opção Incorreta");
+                        } while (escolha == "1" || escolha == "2" || escolha == "3" || escolha == "4" || escolha == "q" || escolha == "Q");
+                        break;
+                }
             }
-        }
-        static void TelaCadastro()
-        {
-            Console.WriteLine("\nÁrea de Cadastro\n");
-        }
-        static void TelaLista()
-        {
-            Console.WriteLine("\nLista de Pacientes\n");
-        }
-        static void TelaAtender()
-        {
-            Console.WriteLine("\nLista de Antendimento\n");
-        }
-        static void TelaAlterar()
-        {
-            Console.WriteLine("\nAlteração de Dados\n");
-        }
-        static void Sair()
-        {
-            
         }
     }
 }
