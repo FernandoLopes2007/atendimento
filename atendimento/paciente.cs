@@ -29,7 +29,7 @@ namespace atendimento
         }
         public void ListarDados()
         {
-            Console.WriteLine("Nível de Prioridade: {0}, {1} ",Prioridade, Nome);
+            Console.WriteLine("Nível de Prioridade: {1}, {0} ",Prioridade, Nome);
         }
     }
 }

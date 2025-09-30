@@ -68,8 +68,9 @@ namespace atendimento
                         for(int i = 0; i < aux - 1; i++)
                         {
                             Paciente[i] = Paciente[i + 1];
-                            Paciente[aux - 1] = null; aux--;
+                           
                         }
+                        Paciente[aux - 1] = null; aux--;
                         break;
 
                     case "4":
